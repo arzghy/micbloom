@@ -30,7 +30,7 @@ export default function Home() {
     { name: 'Putih', image: '/white-black-white.png', color: '#4b5563', bg: '#f3f4f6' },
   ]
 
-  const whatsappNumber = '6281234567890' // Ganti dengan nomor WA yang sebenarnya
+  const whatsappNumber = '6287885695323' // Ganti dengan nomor WA yang sebenarnya
   const whatsappMessage = encodeURIComponent('Halo MicBloom! Saya ingin memesan buket pita satin. Bisa bantu saya?')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
