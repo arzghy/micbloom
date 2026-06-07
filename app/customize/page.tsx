@@ -50,28 +50,41 @@ export default function CustomizePage() {
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-semibold">Kembali</span>
-          </Link>
-          <h1 className="text-2xl font-bold text-primary">🌸 Ribbon Bloom - Kustomisasi</h1>
-          <div className="flex gap-2">
-            <button
-              onClick={handleShare}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-primary text-primary font-medium hover:bg-secondary transition-colors"
-            >
-              <Share2 className="w-4 h-4 mr-2" />
-              Bagikan
-            </button>
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Unduh
-            </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          {/* Row 1 (mobile): back + action buttons */}
+          <div className="flex justify-between items-center gap-2">
+            <Link href="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors shrink-0">
+              <ArrowLeft className="w-5 h-5" />
+              <span className="font-semibold text-sm sm:text-base">Kembali</span>
+            </Link>
+
+            {/* Title — hidden on mobile, shown on sm+ */}
+            <h1 className="hidden sm:block text-lg md:text-2xl font-bold text-primary text-center truncate px-2">
+              🌸 Ribbon Bloom - Kustomisasi
+            </h1>
+
+            <div className="flex gap-2 shrink-0">
+              <button
+                onClick={handleShare}
+                className="inline-flex items-center justify-center px-3 py-2 rounded-full border border-primary text-primary font-medium hover:bg-secondary transition-colors text-sm"
+              >
+                <Share2 className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline">Bagikan</span>
+              </button>
+              <button
+                onClick={handleDownload}
+                className="inline-flex items-center justify-center px-3 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity text-sm"
+              >
+                <Download className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline">Unduh</span>
+              </button>
+            </div>
           </div>
+
+          {/* Title — only visible on mobile, below the row */}
+          <h1 className="sm:hidden text-base font-bold text-primary mt-1.5 leading-tight">
+            🌸 Ribbon Bloom - Kustomisasi
+          </h1>
         </div>
       </nav>
 
