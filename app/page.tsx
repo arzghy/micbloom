@@ -41,6 +41,11 @@ export default function Home() {
       title: '1 Jenis Bunga',
       desc: 'Tersedia bunga pita satin dengan jenis Bunga Mawar.',
     },
+    {
+      icon: <Palette className="w-5 h-5" />,
+      title: '5 Pilihan Warna Pita',
+      desc: 'Tersedia pita berwarna merah, biru, ungu, pink, dan putih.',
+    },
   ]
 
   return (
@@ -113,6 +118,7 @@ export default function Home() {
                 {[
                   { n: '5', label: 'Pilihan Warna' },
                   { n: '1', label: 'Jenis Bunga' },
+                  { n: '5', label: 'Pilihan Pita' },
                 ].map(({ n, label }) => (
                   <div key={label}>
                     <p className="text-[28px] font-bold text-[#c04e6a] leading-none">{n}</p>
