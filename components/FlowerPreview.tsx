@@ -40,8 +40,8 @@ const FlowerPreview: React.FC<Props> = ({ config }) => {
       </div>
       
       <div className="absolute -bottom-6 left-0 right-0 text-center">
-        <p className="text-sm text-muted-foreground italic font-medium">
-          Luxury Bouquet
+        <p className="text-sm text-muted-foreground font-medium">
+          MicBloom
         </p>
       </div>
     </div>

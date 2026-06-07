@@ -37,13 +37,8 @@ export default function Home() {
     },
     {
       icon: <Flower2 className="w-5 h-5" />,
-      title: '5 Jenis Bunga',
-      desc: 'Mawar, Lily, Matahari, Tulip, dan Daisy. Setiap detail dirancang dengan teliti.',
-    },
-    {
-      icon: <Sparkles className="w-5 h-5" />,
-      title: 'Aksesori & Dekorasi',
-      desc: 'Kupu-kupu, glitter, mahkota tiara — sentuhan personal yang tak terlupakan.',
+      title: '1 Jenis Bunga',
+      desc: 'Tersedia bunga pita satin dengan jenis Bunga Mawar.',
     },
   ]
 
@@ -56,7 +51,7 @@ export default function Home() {
           <div className="flex items-center gap-2.5">
             <span className="text-[22px] leading-none">🌸</span>
             <span className="font-bold text-[17px] tracking-tight text-[#2a1f1a]">
-              Ribbon Bloom
+              MicBloom
             </span>
           </div>
           <Link
@@ -117,8 +112,7 @@ export default function Home() {
               <div className="mt-10 flex gap-8">
                 {[
                   { n: '5', label: 'Pilihan Warna' },
-                  { n: '5', label: 'Jenis Bunga' },
-                  { n: '∞', label: 'Kombinasi' },
+                  { n: '1', label: 'Jenis Bunga' },
                 ].map(({ n, label }) => (
                   <div key={label}>
                     <p className="text-[28px] font-bold text-[#c04e6a] leading-none">{n}</p>
@@ -248,7 +242,7 @@ export default function Home() {
       {/* ─── FOOTER ─── */}
       <footer className="border-t border-[#e8ddd5] py-10 text-center">
         <p className="text-[13px] text-[#9a8278]">
-          © 2024 Ribbon Bloom — Kreativitas tanpa batas 🌸
+          © 2026 MicBloom
         </p>
       </footer>
     </main>

@@ -81,11 +81,6 @@ export default function CustomizePage() {
               <span className="font-semibold text-sm sm:text-base">Kembali</span>
             </Link>
 
-            {/* Title — hidden on mobile, shown on sm+ */}
-            <h1 className="hidden sm:block text-lg md:text-2xl font-bold text-primary text-center truncate px-2">
-              🌸 Ribbon Bloom - Kustomisasi
-            </h1>
-
             <div className="flex gap-2 shrink-0">
               <button
                 onClick={handleShare}
