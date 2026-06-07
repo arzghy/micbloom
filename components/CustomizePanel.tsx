@@ -39,10 +39,10 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
   const handleRibbonChange = (ribbon: RibbonType) => onConfigChange({ ribbonColor: ribbon })
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
       {/* Flower Type */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-foreground">Pilih Jenis Bunga</h3>
+        <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Pilih Jenis Bunga</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {Object.entries(flowerNames).map(([key, name]) => (
             <button
@@ -62,20 +62,27 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
 
       {/* Flower Color */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-foreground">Pilih Warna Bunga</h3>
+        <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Pilih Warna Bunga</h3>
         <div className="grid grid-cols-5 gap-3">
           {Object.entries(colorMap).map(([key, { name, hex }]) => (
             <button
               key={key}
               onClick={() => handleColorChange(key as ColorType)}
-              className={`relative p-4 rounded-xl transition-all border-2 ${
-                config.color === key ? 'border-foreground shadow-lg scale-110' : 'border-transparent'
-              }`}
+              className="relative p-2 rounded-xl transition-all"
+              style={{
+                outline: config.color === key ? '2.5px solid #171717' : '2.5px solid transparent',
+                outlineOffset: '2px',
+                boxShadow: config.color === key ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
+              }}
               title={name}
             >
               <div
-                className="w-full h-16 rounded-lg shadow-md transition-transform hover:scale-105"
-                style={{ backgroundColor: hex, border: key === 'white' ? '2px solid #ddd' : 'none' }}
+                className="w-full rounded-lg shadow-md"
+                style={{
+                  backgroundColor: hex,
+                  height: 64,
+                  border: key === 'white' ? '1.5px solid #e5e7eb' : 'none',
+                }}
               />
               <p className="text-xs font-semibold mt-2 text-center text-foreground">{name}</p>
             </button>
@@ -85,20 +92,23 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
 
       {/* Wrapper Color */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-foreground">Warna Pembungkus</h3>
+        <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Warna Pembungkus</h3>
         <div className="grid grid-cols-5 gap-3">
           {Object.entries(wrapperMap).map(([key, { name, hex }]) => (
             <button
               key={key}
               onClick={() => handleWrapperChange(key as WrapperType)}
-              className={`relative p-3 rounded-lg transition-all border-2 ${
-                config.wrapperColor === key ? 'border-foreground shadow-lg scale-110' : 'border-transparent'
-              }`}
+              className="relative p-2 rounded-xl transition-all"
+              style={{
+                outline: config.wrapperColor === key ? '2.5px solid #171717' : '2.5px solid transparent',
+                outlineOffset: '2px',
+                boxShadow: config.wrapperColor === key ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
+              }}
               title={name}
             >
               <div
-                className="w-full h-14 rounded-md shadow-md transition-transform hover:scale-105"
-                style={{ backgroundColor: hex }}
+                className="w-full rounded-lg shadow-md"
+                style={{ backgroundColor: hex, height: 64 }}
               />
               <p className="text-xs font-semibold mt-2 text-center text-foreground">{name}</p>
             </button>
@@ -108,20 +118,27 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
 
       {/* Ribbon Color */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-foreground">Warna Pita Pembungkus</h3>
+        <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Warna Pita Pembungkus</h3>
         <div className="grid grid-cols-5 gap-3">
           {Object.entries(ribbonMap).map(([key, { name, hex }]) => (
             <button
               key={key}
               onClick={() => handleRibbonChange(key as RibbonType)}
-              className={`relative p-3 rounded-lg transition-all border-2 ${
-                config.ribbonColor === key ? 'border-foreground shadow-lg scale-110' : 'border-transparent'
-              }`}
+              className="relative p-2 rounded-xl transition-all"
+              style={{
+                outline: config.ribbonColor === key ? '2.5px solid #171717' : '2.5px solid transparent',
+                outlineOffset: '2px',
+                boxShadow: config.ribbonColor === key ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
+              }}
               title={name}
             >
               <div
-                className="w-full h-14 rounded-md shadow-md transition-transform hover:scale-105"
-                style={{ backgroundColor: hex, border: key === 'white' ? '2px solid #ddd' : 'none' }}
+                className="w-full rounded-lg shadow-md"
+                style={{
+                  backgroundColor: hex,
+                  height: 64,
+                  border: key === 'white' ? '1.5px solid #e5e7eb' : 'none',
+                }}
               />
               <p className="text-xs font-semibold mt-2 text-center text-foreground">{name}</p>
             </button>
@@ -131,7 +148,7 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
 
       {/* Summary */}
       <div className="bg-secondary/50 rounded-xl p-6 space-y-3">
-        <h4 className="font-bold text-foreground">Ringkasan Desain Anda</h4>
+        <h4 className="font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Ringkasan Desain Anda</h4>
         <div className="space-y-2 text-sm text-foreground">
           <p><span className="font-semibold">Jenis Bunga:</span> {config.type ? flowerNames[config.type] : '-'}</p>
           <p><span className="font-semibold">Warna Bunga:</span> {config.color ? colorMap[config.color]?.name : '-'}</p>

@@ -46,7 +46,12 @@ export default function CustomizePage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      {/* Google Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,500&display=swap');
+        * { box-sizing: border-box; }
+      `}</style>
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -82,6 +87,16 @@ export default function CustomizePage() {
           <CustomizePanel config={config} onConfigChange={handleConfigChange} />
         </div>
       </div>
+
+      {/* ─── FOOTER ─── */}
+      <footer style={{ borderTop: '1px solid #e8ddd5', padding: '32px 20px', background: '#faf8f5' }}>
+        <div className="footer-inner" style={{ maxWidth: 1120, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: '#c04e6a' }}>MicBloom</span>
+            <span style={{ color: '#9a8278', fontSize: 13 }}>© 2026</span>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
