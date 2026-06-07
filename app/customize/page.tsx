@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Download, Share2 } from 'lucide-react'
+import { ArrowLeft, Download } from 'lucide-react'
 import FlowerPreview, { FlowerConfig } from '@/components/FlowerPreview'
 import CustomizePanel from '@/components/CustomizePanel'
 
@@ -45,33 +45,9 @@ export default function CustomizePage() {
     }
   }
 
-  // Fungsi membagikan desain lewat Web Share API browser / menyalin tautan halaman
-  const handleShare = async () => {
-    const shareText = `Lihat kustomisasi buket Mawar saya!\nWarna Bunga: ${config.color}\nPembungkus: ${config.wrapperColor}\nPita: ${config.ribbonColor}`
-    
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Ribbon Bloom - Kustomisasi Buket',
-          text: shareText,
-          url: window.location.href,
-        })
-      } catch (error) {
-        console.log('Batal membagikan:', error)
-      }
-    } else {
-      try {
-        await navigator.clipboard.writeText(window.location.href)
-        alert(`${shareText}\n\nLink kustomisasi telah disalin ke clipboard!`)
-      } catch (err) {
-        alert(shareText)
-      }
-    }
-  }
-
   return (
     <main className="min-h-screen bg-background">
-      {/* Navigation - Menggunakan versi responsif dari teman */}
+      {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           {/* Row 1 (mobile): back + action buttons */}
@@ -83,13 +59,6 @@ export default function CustomizePage() {
 
             <div className="flex gap-2 shrink-0">
               <button
-                onClick={handleShare}
-                className="inline-flex items-center justify-center px-3 py-2 rounded-full border border-primary text-primary font-medium hover:bg-secondary transition-colors text-sm"
-              >
-                <Share2 className="w-4 h-4 sm:mr-2" />
-                <span className="hidden sm:inline">Bagikan</span>
-              </button>
-              <button
                 onClick={handleDownload}
                 className="inline-flex items-center justify-center px-3 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity text-sm"
               >
@@ -98,11 +67,6 @@ export default function CustomizePage() {
               </button>
             </div>
           </div>
-
-          {/* Title — only visible on mobile, below the row */}
-          <h1 className="sm:hidden text-base font-bold text-primary mt-1.5 leading-tight">
-            🌸 Ribbon Bloom - Kustomisasi
-          </h1>
         </div>
       </nav>
 

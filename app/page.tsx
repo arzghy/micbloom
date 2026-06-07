@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Flower2, Palette, Sparkles } from 'lucide-react'
 import { useEffect, useState, useRef } from 'react'
 
@@ -17,16 +18,16 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveFlower(prev => (prev + 1) % 5)
-    }, 1800)
+    }, 2500)
     return () => clearInterval(interval)
   }, [])
 
   const flowers = [
-    { name: 'Mawar', emoji: '🌹', color: '#b5395a', bg: '#fdeef3' },
-    { name: 'Lily', emoji: '🌸', color: '#c2537a', bg: '#fce8ef' },
-    { name: 'Matahari', emoji: '🌻', color: '#a8722a', bg: '#fdf3e3' },
-    { name: 'Tulip', emoji: '🌷', color: '#c04e6a', bg: '#fce5ec' },
-    { name: 'Daisy', emoji: '🌼', color: '#7a9e3b', bg: '#f0f7e3' },
+    { name: 'Merah', image: '/red-black-red.png', color: '#b5395a', bg: '#fdeef3' },
+    { name: 'Navy', image: '/navy-black-navy.png', color: '#1e3a8a', bg: '#e0e7ff' },
+    { name: 'Ungu', image: '/purple-black-purple.png', color: '#7e22ce', bg: '#f3e8ff' },
+    { name: 'Pink', image: '/pink-black-pink.png', color: '#db2777', bg: '#fce7f3' },
+    { name: 'Putih', image: '/white-black-white.png', color: '#4b5563', bg: '#f3f4f6' },
   ]
 
   const features = [
@@ -45,12 +46,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#faf8f5] overflow-hidden">
 
-      {/* ─── NAV ─── */}
-      <nav className="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#e8ddd5]">
+      {/* ─── NAV (Fixed) ─── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#e8ddd5]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="text-[22px] leading-none">🌸</span>
-            <span className="font-bold text-[17px] tracking-tight text-[#2a1f1a]">
+            <span className="font-bold text-[25px] tracking-tight text-[#c04e6a]">
               MicBloom
             </span>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
       {/* ─── HERO ─── */}
       <section
         ref={heroRef}
-        className="max-w-6xl mx-auto px-5 sm:px-8 pt-20 pb-16 md:pt-28 md:pb-24"
+        className="max-w-6xl mx-auto px-5 sm:px-8 pt-24 pb-16 md:pt-32 md:pb-24"
       >
         <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
 
@@ -101,11 +101,11 @@ export default function Home() {
                 </Link>
                 
                 <Link
-  href="#features"
-  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-[#d9c9be] text-[#4a3329] font-medium text-[15px] hover:bg-[#f0e8e1] transition-colors"
->
-  Lihat Fitur
-</Link>
+                  href="#features"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-[#d9c9be] text-[#4a3329] font-medium text-[15px] hover:bg-[#f0e8e1] transition-colors"
+                >
+                  Lihat Fitur
+                </Link>
               </div>
 
               {/* Stat strip */}
@@ -124,42 +124,56 @@ export default function Home() {
 
             {/* Right — flower showcase */}
             <div className="relative">
-              <div className="absolute inset-0 -z-0 rounded-[40px] bg-gradient-to-br from-[#fdeef3] to-[#f0e8e1] opacity-60" />
+              <div 
+                className="absolute inset-0 -z-0 rounded-[40px] opacity-60 transition-colors duration-700" 
+                style={{ backgroundImage: `linear-gradient(to bottom right, ${flowers[activeFlower].bg}, #f0e8e1)` }} 
+              />
 
               <div className="relative z-10 p-8 sm:p-10 flex flex-col items-center gap-6">
-                <div
-                  className="w-36 h-36 rounded-full flex flex-col items-center justify-center transition-all duration-500 shadow-md"
-                  style={{ backgroundColor: flowers[activeFlower].bg }}
-                >
-                  <span className="text-[52px] leading-none">{flowers[activeFlower].emoji}</span>
+                
+                {/* Image Showcase */}
+                <div className="relative w-48 h-64 sm:w-56 sm:h-72 flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 drop-shadow-2xl">
+                  <Image
+                    src={flowers[activeFlower].image}
+                    alt={`Buket Mawar ${flowers[activeFlower].name}`}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                
+                {/* Nama Bunga */}
+                <div className="text-center h-6">
                   <span
-                    className="text-[12px] font-semibold mt-1.5"
+                    className="text-[16px] font-bold transition-colors duration-300"
                     style={{ color: flowers[activeFlower].color }}
                   >
-                    {flowers[activeFlower].name}
+                    Mawar {flowers[activeFlower].name}
                   </span>
                 </div>
 
-                <div className="flex gap-3">
+                {/* Color Selector Buttons */}
+                <div className="flex gap-4 mt-2">
                   {flowers.map((f, i) => (
                     <button
                       key={f.name}
                       onClick={() => setActiveFlower(i)}
-                      className={`w-9 h-9 rounded-full flex items-center justify-center text-[20px] transition-all ${
+                      className={`w-7 h-7 rounded-full transition-all border-2 border-white shadow-sm ${
                         activeFlower === i
-                          ? 'scale-110 shadow-md ring-2 ring-white ring-offset-1'
-                          : 'opacity-50 hover:opacity-80'
+                          ? 'scale-125 ring-2 ring-offset-2'
+                          : 'opacity-50 hover:opacity-100 hover:scale-110'
                       }`}
-                      style={{ backgroundColor: f.bg }}
+                      style={{ 
+                        backgroundColor: f.color, 
+                        '--tw-ring-color': f.color 
+                      } as React.CSSProperties}
                       title={f.name}
-                    >
-                      {f.emoji}
-                    </button>
+                    />
                   ))}
                 </div>
 
-                <p className="text-[13px] text-[#9a8278] text-center">
-                  Klik untuk melihat tiap jenis bunga
+                <p className="text-[13px] text-[#9a8278] text-center mt-2">
+                  Klik untuk melihat pilihan warna
                 </p>
               </div>
             </div>
@@ -186,7 +200,7 @@ export default function Home() {
               Semua Ada<br />di Sini
             </h2>
             <p className="text-[15px] text-[#6b5a52] mt-4 leading-relaxed">
-              Alat kustomisasi lengkap untuk menciptakan buquet satin yang sempurna.
+              Alat kustomisasi lengkap untuk menciptakan buket satin yang sempurna.
             </p>
           </div>
 
@@ -226,7 +240,7 @@ export default function Home() {
               Siap Berkreasi?
             </h2>
             <p className="text-[16px] text-[#c4a8a0] max-w-[400px] leading-relaxed">
-              Buat buquet satin impian Anda sekarang. Gratis, langsung, tanpa perlu daftar.
+              Buat buket satin impian Anda sekarang. Gratis, langsung, tanpa perlu daftar.
             </p>
           </div>
           <Link
