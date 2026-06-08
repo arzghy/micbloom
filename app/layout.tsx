@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Ribbon Bloom - Kustomisasi Bunga Pita Satin',
+  title: 'MicBloom - Kustomisasi Bunga Pita Satin',
   description: 'Desain bunga pita satin yang indah dan unik dengan berbagai pilihan warna, jenis bunga, dan aksesori',
   generator: 'v0.app',
   icons: {
