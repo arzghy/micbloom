@@ -52,26 +52,22 @@ export default function CustomizePage() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,500&display=swap');
         * { box-sizing: border-box; }
       `}</style>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          {/* Row 1 (mobile): back + action buttons */}
-          <div className="flex justify-between items-center gap-2">
-            <Link href="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors shrink-0">
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-semibold text-sm sm:text-base">Kembali</span>
-            </Link>
+        <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 20px', height: 68, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Link href="/" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+            <span className="font-semibold">Kembali</span>
+          </Link>
 
-            <div className="flex gap-2 shrink-0">
-              <button
-                onClick={handleDownload}
-                className="inline-flex items-center justify-center px-3 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity text-sm"
-              >
-                <Download className="w-4 h-4 sm:mr-2" />
-                <span className="hidden sm:inline">Unduh</span>
-              </button>
-            </div>
-          </div>
+          <button
+            onClick={handleDownload}
+            className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity text-sm gap-2"
+          >
+            <Download className="w-4 h-4" />
+            <span>Unduh</span>
+          </button>
         </div>
       </nav>
 

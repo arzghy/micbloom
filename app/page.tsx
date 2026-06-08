@@ -365,7 +365,7 @@ export default function Home() {
                 <span className="gradient-text">Impian Anda</span>
               </h1>
               <p className="hero-desc" style={{ fontSize: 17, color: '#6b5a52', lineHeight: 1.75, margin: '0 0 32px', maxWidth: 420 }}>
-                Desain buket satin yang unik dan penuh makna — pilih jenis, warna, dan aksesori favorit untuk sebuah karya yang benar-benar <em>personal</em>.
+                Desain buket satin yang unik dan penuh makna. Pilih jenis, warna, dan aksesori favorit untuk sebuah karya yang benar-benar personal.
               </p>
             </div>
             
@@ -385,7 +385,7 @@ export default function Home() {
             <div className="loaded-4 stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {[
                 { n: '5 Warna', label: 'Bunga', icon: '🎨' },
-                { n: '1 Jenis', label: 'Bunga', icon: '🌺' },
+                { n: '3 Warna', label: 'Pembungkus', icon: '💐' },
                 { n: '5 Warna', label: 'Pita', icon: '🎀' },
               ].map((s, i) => (
                 <div key={i} className="stat-pill">

@@ -18,6 +18,8 @@ const colorMap: Record<ColorType, { name: string; hex: string }> = {
 
 const wrapperMap: Record<WrapperType, { name: string; hex: string }> = {
   black: { name: 'Hitam', hex: '#171717' },
+  white: { name: 'Putih', hex: '#FFFFFF' },
+  softpink: { name: 'Soft Pink', hex: '#FADADD' },
 }
 
 const ribbonMap: Record<RibbonType, { name: string; hex: string }> = {
@@ -108,7 +110,13 @@ const CustomizePanel: React.FC<Props> = ({ config, onConfigChange }) => {
             >
               <div
                 className="w-full rounded-lg shadow-md"
-                style={{ backgroundColor: hex, height: 64 }}
+                style={{
+                  backgroundColor: hex,
+                  height: 64,
+                  border: key === 'white' || key === 'softpink'
+                    ? '1.5px solid #e5e7eb'
+                    : 'none',
+                }}
               />
               <p className="text-xs font-semibold mt-2 text-center text-foreground">{name}</p>
             </button>
