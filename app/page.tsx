@@ -434,7 +434,7 @@ export default function Home() {
                 padding: '8px 20px',
                 boxShadow: '0 4px 16px rgba(0,0,0,0.06)',
               }}>
-                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 700, color: flowers[activeFlower].color, transition: 'color 0.4s ease' }}>
+                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 700, color: flowers[activeFlower].color === '#ffffff' ? '#9a8278' : flowers[activeFlower].color, transition: 'color 0.4s ease' }}>
                   🌸 Mawar {flowers[activeFlower].name}
                 </span>
               </div>
