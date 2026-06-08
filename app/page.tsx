@@ -27,7 +27,7 @@ export default function Home() {
     { name: 'Navy', image: '/navy-black-navy.png', color: '#1e3a8a', bg: '#e0e7ff' },
     { name: 'Ungu', image: '/purple-black-purple.png', color: '#7e22ce', bg: '#f3e8ff' },
     { name: 'Pink', image: '/pink-black-pink.png', color: '#db2777', bg: '#fce7f3' },
-    { name: 'Putih', image: '/white-black-white.png', color: '#4b5563', bg: '#f3f4f6' },
+    { name: 'Putih', image: '/white-black-white.png', color: '#ffffff', bg: '#f3f4f6' },
   ]
 
   const whatsappNumber = '6287885695323' // Ganti dengan nomor WA yang sebenarnya
